@@ -1,3 +1,9 @@
+/*
+Copyright (C) 2016 Team 14, CMPUT301, University of Alberta - All Rights Reserved.
+You may use, copy or distribute this code under terms and conditions of University of Alberta
+and Code of Student Behavior.
+Please contact ting8@ualberta,ca for more details and questions.
+ */
 package ca.ualberta.cs.lonelytwitter;
 
 		import java.io.BufferedReader;
@@ -23,14 +29,48 @@ package ca.ualberta.cs.lonelytwitter;
 		import com.google.gson.Gson;
 		import com.google.gson.reflect.TypeToken;
 
+/**
+ * This class is the main view class in lonelyTwitter class
+ * It deals with user inputs. saves/loads them in/from the file FILE_NAME (file.sav).
+ * <p> You can access this file from Android Device Monitor</p>
+ * <pre> pre-formatted      text</pre>
+ * <code>
+ *     pseudo-code that is used in this class as follows: <br>
+ *         step 1 <br>
+ *         step 2 <br>
+ *</code>
+ * <pl>
+ *     <ting8> first item</ting8>
+ *     <ting8> second item</ting8>
+ * </pl>
+ * @author ting8
+ * @since 1.4
+ * //@deprecated
+ * @see NormalTweet
+ * @see java.io.BufferedReader
+ * @see TweetList
+ */
 public class LonelyTwitterActivity extends Activity {
+
+	/**
+	 * This is the name of the file that is saved in your virtual device.
+	 * You canaccess it through Android Device Monitor by selecting you app,
+	 * then data -> data -> file.sav
+	 * @see NormalTweet
+	 * @author ting8
+	 */
 
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
+	//This is
 	private ListView oldTweetsList;
 	private ArrayList<Tweet> tweetList = new ArrayList<Tweet>();
 	private ArrayAdapter<Tweet> adapter;
 
+	/*
+	Testing multi-line documentations
+	Testing.
+	 */
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +121,13 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+
+	/**
+	 * This method loads the json file and generates the tweets from its contents.
+	 * @throws  RuntimeException
+	 * @exception FileNotFoundException
+	 * Note:ctrl+/  or   ctrl+shift+/ for comments
+	 */
 	private void loadFromFile() {
 		ArrayList<String> tweets = new ArrayList<String>();
 		try {
