@@ -57,11 +57,13 @@ public class ElasticsearchTweetController {
 
             //Assumption: Only the first search_paraemeter[0] is used.
 
+            String search_string = "{\"from\": 0, \"size\": 10000}";
+
             Search search = new Search.Builder(search_parameters[0])
                     .addIndex("testing")
                     .addType("tweet")
                     .build();
-            
+
             try{
                 SearchResult result = client.execute(search);
                 if (result.isSucceeded()){
